@@ -1,5 +1,15 @@
+// import React, { useState } from 'react';
+// import { Menu, Search, Heart, User, Flag , Button , ChevronDown, MapPin, List, Map, RefreshCw } from 'lucide-react';
+// // import { Card, CardContent } from "@/components/ui/card";
+// // import { Button } from "@/components/ui/button";
+// import { Card, CardContent } from "@/components/ui/card";
+// import { But } from "@/components/ui/button";
 import React, { useState } from 'react';
-import { Menu, Search, Heart, User, ChevronDown, MapPin, List, Map, RefreshCw } from 'lucide-react';
+import { Menu, Search, Heart, User, Flag, ChevronDown, MapPin, List, Map, RefreshCw, } from 'lucide-react';
+import { Card, CardContent } from "./card"; 
+import { Button } from "./Component/button"; // Use the Button component from your own codebase
+
+
 
 function Header() {
   return (
@@ -197,149 +207,357 @@ function QuickLinks() {
   );
 }
 
-function PropertyCard({ property }) {
+function PropertyCard() { 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <div className="relative">
-        <img 
-          src={property.image} 
-          alt={property.title}
-          className="w-full h-48 object-cover"
+  //   <div className="bg-white w-full rounded-lg shadow-lg overflow-hidden">
+  //     <div className="relative">
+  //     <h1 className="text-xl font-semibold text-gray-800 mb-6">
+  //   {/* 2 BHK Apartment In Pavani Ishta, Marathahalli, Bangalore For Rent In Marathahalli */}
+  //   {property.title}
+  // </h1><div>
+  //       <img 
+  //         src={property.image} 
+  //         alt={property.title}
+  //         className="w-sm h-48 object-cover"
+  //       />
+  //       {property.lowDeposit && (
+  //         <div className="absolute bottom-2 left-2 bg-orange-500 text-white px-2 py-1 rounded text-sm">
+  //           Low Deposit
+  //         </div>
+  //       )}
+        
+  //       </div>
+  //     </div>
+  //     <div className="p-4">
+  //       <h3 className="text-lg font-semibold mb-2">{property.title}</h3>
+  //       <p className="text-gray-600 mb-2">{property.location}</p>
+  //       <div className="flex justify-between items-center mb-4">
+  //         <div>
+  //           <span className="text-emerald-600 font-bold">₹{property.rent.toLocaleString()}</span>
+  //           <span className="text-sm text-gray-500 ml-1">Rent</span>
+  //         </div>
+  //         <div>
+  //           <span className="text-gray-700 font-semibold">₹{property.deposit.toLocaleString()}</span>
+  //           <span className="text-sm text-gray-500 ml-1">Deposit</span>
+  //         </div>
+  //         <div>
+  //           <span className="text-gray-700 font-semibold">₹{property.deposit.toLocaleString()}</span>
+  //           <span className="text-sm text-gray-500 ml-1">Deposit</span>
+  //         </div>
+  //       </div>
+  //       <div className="grid grid-cols-2 gap-4 mb-4">
+  //         <div className="flex items-center">
+  //           <span className="text-gray-600">{property.furnishing}</span>
+  //         </div>
+  //         <div className="flex items-center">
+  //           <span className="text-gray-600">{property.type}</span>
+  //         </div>
+  //         <div className="flex items-center">
+  //           <span className="text-gray-600">{property.tenantType}</span>
+  //         </div>
+  //         <div className="flex items-center">
+  //           <span className="text-gray-600">{property.availability}</span>
+  //         </div>
+  //       </div>
+  //       <button className="w-full py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
+  //         Get Owner Details
+  //       </button>
+  //     </div>
+  //   </div>
+  // <div className="flex justify-center items-center h-screen bg-gray-100">
+  // <Card className="max-w-3xl bg-white shadow-xl rounded-2xl p-4">
+  //   <CardContent>
+  //     <div className="grid grid-cols-3 gap-4 items-start">
+  //       <div className="col-span-2">
+  //         <h2 className="text-lg font-bold text-gray-800">2 BHK Apartment In Pavani Ishta, Marathahalli, Bangalore For Rent In Marathahalli</h2>
+  //         <p className="text-sm text-gray-500 mt-1">Pavani Ishta, Marathahalli, Bangalore Sai Baba Temple Rd, Green Garden Layout, <a href="#" className="text-blue-500">Explore Nearby</a></p>
+  //         <div className="flex items-center mt-4 space-x-8">
+  //           <div>
+  //             <p className="text-xl font-semibold text-gray-800">₹ 35,000 +</p>
+  //             <p className="text-sm text-gray-500">Rent (Non-Negotiable)</p>
+  //           </div>
+  //           <div>
+  //             <p className="text-xl font-semibold text-gray-800">₹ 2,00,000</p>
+  //             <p className="text-sm text-gray-500">Deposit</p>
+  //           </div>
+  //           <div>
+  //             <p className="text-xl font-semibold text-gray-800">1,200 sqft</p>
+  //             <p className="text-sm text-gray-500">Builtup</p>
+  //           </div>
+  //         </div>
+  //       </div>
+
+  //       <div className="col-span-1 flex flex-col items-center">
+  //         <img
+  //           src="https://via.placeholder.com/150"
+  //           alt="Property"
+  //           className="rounded-lg mb-4 w-full h-32 object-cover"
+  //         />
+  //         <div className="grid grid-cols-2 gap-4 w-full">
+  //           <div className="flex flex-col items-start">
+  //             <p className="font-semibold text-gray-700">Furnishing</p>
+  //             <Button variant="outline" className="text-green-600 text-sm">Furnish</Button>
+  //           </div>
+  //           <div>
+  //             <p className="font-semibold text-gray-700">Apartment Type</p>
+  //             <p className="text-sm text-gray-600">2 BHK</p>
+  //           </div>
+  //           <div>
+  //             <p className="font-semibold text-gray-700">Preferred Tenants</p>
+  //             <p className="text-sm text-gray-600">Family</p>
+  //           </div>
+  //           <div>
+  //             <p className="font-semibold text-gray-700">Available From</p>
+  //             <p className="text-sm text-gray-600">15-Feb-2025</p>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //     <div className="mt-4 flex items-center justify-between">
+  //       <But className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full">Get Owner Details</Button>
+  //       <div className="flex items-center space-x-1">
+  //         <Heart className="text-gray-500 w-2 h-2 cursor-pointer hover:text-red-500" />
+  //         <Flag className="text-gray-500 w-2 h-2 cursor-pointer hover:text-blue-500" />
+  //       </div>
+  //     </div>
+  //   </CardContent>
+  // </Card>
+// </div>
+<main className="pt-32 pb-4 pl-64 pr-64 bg-gray-50">
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+  <div className="grid grid-cols-1 gap-8">
+  <div className="grid grid-cols-3 gap-4 items-start bg-red-50 shadow-lg rounded-lg p-6">
+      <div className="col-span-2">
+        <h2 className="text-lg font-bold text-gray-800">2 BHK Apartment In Pavani Ishta, Marathahalli, Bangalore For Rent In Marathahalli</h2>
+        <p className="text-sm text-gray-500 mt-1">Pavani Ishta, Marathahalli, Bangalore Sai Baba Temple Rd, Green Garden Layout, <a href="#" className="text-blue-500">Explore Nearby</a></p>
+        <div className="flex items-center mt-4 space-x-8">
+          <div>
+            <p className="text-xl font-semibold text-gray-800">₹ 35,000 +</p>
+            <p className="text-sm text-gray-500">Rent (Non-Negotiable)</p>
+          </div>
+          <div>
+            <p className="text-xl font-semibold text-gray-800">₹ 2,00,000</p>
+            <p className="text-sm text-gray-500">Deposit</p>
+          </div>
+          <div>
+            <p className="text-xl font-semibold text-gray-800">1,200 sqft</p>
+            <p className="text-sm text-gray-500">Builtup</p>
+          </div>
+          
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80"
+          alt="Property"
+          className="rounded-lg mb-4 w-53 h-36 "
         />
-        {property.lowDeposit && (
-          <div className="absolute bottom-2 left-2 bg-orange-500 text-white px-2 py-1 rounded text-sm">
-            Low Deposit
-          </div>
-        )}
       </div>
-      <div className="p-4">
-        <h3 className="text-lg font-semibold mb-2">{property.title}</h3>
-        <p className="text-gray-600 mb-2">{property.location}</p>
-        <div className="flex justify-between items-center mb-4">
-          <div>
-            <span className="text-emerald-600 font-bold">₹{property.rent.toLocaleString()}</span>
-            <span className="text-sm text-gray-500 ml-1">Rent</span>
+
+      <div className="col-span-1 flex flex-col items-center">
+        <img
+          src="https://via.placeholder.com/150"
+          alt="Property"
+          className="rounded-lg mb-4 w-32 h-32 "
+        />
+        <div className="grid grid-cols-2 gap-4 w-full">
+          <div className="flex flex-col items-start">
+            <p className="font-semibold text-gray-700">Furnishing</p>
+            <Button variant="outline" className="text-green-600 text-sm">Furnish</Button>
           </div>
           <div>
-            <span className="text-gray-700 font-semibold">₹{property.deposit.toLocaleString()}</span>
-            <span className="text-sm text-gray-500 ml-1">Deposit</span>
+            <p className="font-semibold text-gray-700">Apartment Type</p>
+            <p className="text-sm text-gray-600">2 BHK</p>
+          </div>
+          <div>
+            <p className="font-semibold text-gray-700">Preferred Tenants</p>
+            <p className="text-sm text-gray-600">Family</p>
+          </div>
+          <div>
+            <p className="font-semibold text-gray-700">Available From</p>
+            <p className="text-sm text-gray-600">15-Feb-2025</p>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <div className="flex items-center">
-            <span className="text-gray-600">{property.furnishing}</span>
-          </div>
-          <div className="flex items-center">
-            <span className="text-gray-600">{property.type}</span>
-          </div>
-          <div className="flex items-center">
-            <span className="text-gray-600">{property.tenantType}</span>
-          </div>
-          <div className="flex items-center">
-            <span className="text-gray-600">{property.availability}</span>
-          </div>
-        </div>
-        <button className="w-full py-2 bg-red-500 text-white rounded-md hover:bg-red-600">
-          Get Owner Details
-        </button>
+      </div>
+    
+    <div className="mt-4 flex items-center justify-between">
+      <Button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full">Get Owner Details</Button>
+      <div className="flex items-center space-x-2">
+        <Heart className="text-gray-500 w-5 h-5 cursor-pointer hover:text-red-500" />
+        <Flag className="text-gray-500 w-5 h-5 cursor-pointer hover:text-blue-500" />
       </div>
     </div>
+    </div>
+  </div>
+</div>
+</main>
+  );
+}
+function PropertyCardss() {
+  return (
+    <main className="pt-8 pb-4 pl-64 pr-64 bg-gray-50">
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+  <div className="grid grid-cols-1 gap-8">
+    <div className="grid grid-cols-3 gap-4 items-start bg-red-50 shadow-lg rounded-lg p-6">
+      <div className="col-span-2">
+        <h2 className="text-lg font-bold text-gray-800">2 BHK Apartment In Pavani Ishta, Marathahalli, Bangalore For Rent In Marathahalli</h2>
+        <p className="text-sm text-gray-500 mt-1">Pavani Ishta, Marathahalli, Bangalore Sai Baba Temple Rd, Green Garden Layout, <a href="#" className="text-blue-500">Explore Nearby</a></p>
+        <div className="flex items-center mt-4 space-x-8">
+          <div>
+            <p className="text-xl font-semibold text-gray-800">₹ 35,000 +</p>
+            <p className="text-sm text-gray-500">Rent (Non-Negotiable)</p>
+          </div>
+          <div>
+            <p className="text-xl font-semibold text-gray-800">₹ 2,00,000</p>
+            <p className="text-sm text-gray-500">Deposit</p>
+          </div>
+          <div>
+            <p className="text-xl font-semibold text-gray-800">1,200 sqft</p>
+            <p className="text-sm text-gray-500">Builtup</p>
+          </div>
+          
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80"
+          alt="Property"
+          className="rounded-lg mb-4 w-53 h-36 "
+        />
+      </div>
+
+      <div className="col-span-1 flex flex-col items-center">
+        <img
+          src="https://via.placeholder.com/150"
+          alt="Property"
+          className="rounded-lg mb-4 w-32 h-32 "
+        />
+        <div className="grid grid-cols-2 gap-4 w-full">
+          <div className="flex flex-col items-start">
+            <p className="font-semibold text-gray-700">Furnishing</p>
+            <Button variant="outline" className="text-green-600 text-sm">Furnish</Button>
+          </div>
+          <div>
+            <p className="font-semibold text-gray-700">Apartment Type</p>
+            <p className="text-sm text-gray-600">2 BHK</p>
+          </div>
+          <div>
+            <p className="font-semibold text-gray-700">Preferred Tenants</p>
+            <p className="text-sm text-gray-600">Family</p>
+          </div>
+          <div>
+            <p className="font-semibold text-gray-700">Available From</p>
+            <p className="text-sm text-gray-600">15-Feb-2025</p>
+          </div>
+        </div>
+      </div>
+    
+    <div className="mt-4 flex items-center justify-between">
+      <Button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full">Get Owner Details</Button>
+      <div className="flex items-center space-x-2">
+        <Heart className="text-gray-500 w-5 h-5 cursor-pointer hover:text-red-500" />
+        <Flag className="text-gray-500 w-5 h-5 cursor-pointer hover:text-blue-500" />
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</main>
   );
 }
 
 function App() {
-  const properties = [
-    {
-      id: 1,
-      title: '2 BHK House For Rent In M N Homes',
-      location: 'Independent House, Near Kundalahalli Gate',
-      rent: 24000,
-      deposit: 60000,
-      furnishing: 'Semi Furnished',
-      type: '2 BHK',
-      tenantType: 'All',
-      availability: 'Ready to Move',
-      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
-      lowDeposit: true
-    },
-    {
-      id: 2,
-      title: '2 BHK Apartment In Keerthana Kings Bliss',
-      location: 'Keerthana Kings Bliss, Green Garden Layout',
-      rent: 32000,
-      deposit: 100000,
-      furnishing: 'Semi Furnished',
-      type: '2 BHK',
-      tenantType: 'Family',
-      availability: 'Ready to Move',
-      image: 'https://images.unsplash.com/photo-1565183997392-2f6f122e5912?auto=format&fit=crop&w=800&q=80',
-      lowDeposit: false
-    }, {
-      id: 1,
-      title: '2 BHK House For Rent In M N Homes',
-      location: 'Independent House, Near Kundalahalli Gate',
-      rent: 2000,
-      deposit: 60000,
-      furnishing: 'Semi Furnished',
-      type: '2 BHK',
-      tenantType: 'All',
-      availability: 'Ready to Move',
-      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
-      lowDeposit: true
-    }, {
-      id: 1,
-      title: '2 BHK House For Rent In M N Homes',
-      location: 'Independent House, Near Kundalahalli Gate',
-      rent: 24000,
-      deposit: 60000,
-      furnishing: 'Semi Furnished',
-      type: '2 BHK',
-      tenantType: 'All',
-      availability: 'Ready to Move',
-      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
-      lowDeposit: true
-    }, {
-      id: 1,
-      title: '2 BHK House For Rent In M N Homes',
-      location: 'Independent House, Near Kundalahalli Gate',
-      rent: 2300,
-      deposit: 60000,
-      furnishing: 'Semi Furnished',
-      type: '2 BHK',
-      tenantType: 'All',
-      availability: 'Ready to Move',
-      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
-      lowDeposit: true
-    },  {
-      id: 1,
-      title: '2 BHK House For Rent In M N Homes',
-      location: 'Independent House, Near Kundalahalli Gate',
-      rent: 2000,
-      deposit: 60000,
-      furnishing: 'Semi Furnished',
-      type: '2 BHK',
-      tenantType: 'All',
-      availability: 'Ready to Move',
-      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
-      lowDeposit: true
-    },
-    // Add more properties as needed
+  const [currentImage, setCurrentImage] = React.useState(0);
+  const images = [
+    'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80',
+    'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&q=80'
   ];
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+  };
+  // const properties = [
+  //   {
+  //     id: 1,
+  //     title: '2 BHK House For Rent In M N Homes',
+  //     location: 'Independent House, Near Kundalahalli Gate',
+  //     rent: 24000,
+  //     deposit: 60000,
+  //     furnishing: 'Semi Furnished',
+  //     type: '2 BHK',
+  //     tenantType: 'All',
+  //     availability: 'Ready to Move',
+  //     image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
+  //     lowDeposit: true
+  //   },
+  //   {
+  //     id: 2,
+  //     title: '2 BHK Apartment In Keerthana Kings Bliss',
+  //     location: 'Keerthana Kings Bliss, Green Garden Layout',
+  //     rent: 32000,
+  //     deposit: 100000,
+  //     furnishing: 'Semi Furnished',
+  //     type: '2 BHK',
+  //     tenantType: 'Family',
+  //     availability: 'Ready to Move',
+  //     image: 'https://images.unsplash.com/photo-1565183997392-2f6f122e5912?auto=format&fit=crop&w=800&q=80',
+  //     lowDeposit: false
+  //   }, {
+  //     id: 1,
+  //     title: '2 BHK House For Rent In M N Homes',
+  //     location: 'Independent House, Near Kundalahalli Gate',
+  //     rent: 2000,
+  //     deposit: 60000,
+  //     builtup: 1200,
+  //     furnishing: 'Semi Furnished',
+  //     type: '2 BHK',
+  //     tenantType: 'All',
+  //     availability: 'Ready to Move',
+  //     preferredTenants: 'Family',
+  //     availablefrom: '2024-09-01',
+  //     image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
+  //     lowDeposit: true
+  //   }, {
+  //     id: 1,
+  //     title: '2 BHK House For Rent In M N Homes',
+  //     location: 'Independent House, Near Kundalahalli Gate',
+  //     rent: 24000,
+  //     deposit: 60000,
+  //     furnishing: 'Semi Furnished',
+  //     type: '2 BHK',
+  //     tenantType: 'All',
+  //     availability: 'Ready to Move',
+  //     preferredTenants: 'Family',
+  //     availablefrom: '2024-09-01',
+  //     image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
+  //     lowDeposit: true
+  //   }, 
+  //   // Add more properties as needed
+  // ];
 
   return (
     <div className="min-h-screen bg-gray-100">
       <Header />
       <FilterSidebar />
       <QuickLinks />
-      <main className="pt-32 pb-16 pl-64 pr-64">
+      {/* <main className="pt-32 pb-16 pl-64 pr-64">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {properties.map((property) => (
+          <div className="grid grid-cols-1 gap-8 bg-yellow-50"> */}
+            {/* {properties.map((property) => (
               <PropertyCard key={property.id} property={property} />
             ))}
-          </div>
-        </div>
-      </main>
+             */}
+             
+             <PropertyCard />
+             <PropertyCardss />
+             <PropertyCardss />
+             <PropertyCardss />
+             <PropertyCardss />
+            {/* </div> */}
+               
+        {/* // </div> */}
+      {/* // </main> */}
       <footer className="fixed bottom-0 left-0 right-0 bg-gray-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-4 text-center text-sm">
